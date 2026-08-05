@@ -6,3 +6,26 @@ Spiderman es un superhéroe ficticio creado por el escritor Stan Lee y el dibuja
 
 - Doctor Octopus
 - Green Goblin
+
+## Familiares
+
+- Tía May
+- Tío Ben
+- Richard Parker (padre)
+- Mary Parker (madre)
+- Teresa Parker (hermana)
+- Mary Jane Watson (esposa en algunas versiones)
+- Gwen Stacy (novia en algunas versiones)
+- Annie Parker (hija en algunas versiones)
+- Benjamin "Benjy" Parker (hijo en algunas versiones alternativas)
+
+## Películas
+
+- Spiderman: No way home
+- Spiderman: Far from home
+- Spiderman: Into the spider-verse
+- Spiderman: Homecoming
+- Spiderman: No way home
+- Spiderman 1
+- Spiderman 2
+- Spiderman 3
