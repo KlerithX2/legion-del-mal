@@ -3,6 +3,8 @@ name: 🤖 Bienvenido Brainiac - Nuevo issue
 on:
   # issues:
   #   types: [opened]
+
+  ## remover esto cuando lo tengan listo para prod
   workflow_dispatch:
 
 permissions:
