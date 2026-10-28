@@ -1,40 +1,41 @@
 name: Reclutamiento de Agente
 
-# on: push
-on:
-  workflow_dispatch:
+on: push
 
-jobs:
-  reporte-de-reclutamiento:
-    runs-on: ubuntu-latest
+jobs: 
+    reporte-de-reclutamiento:
+        runs-on: ubuntu-latest
+        steps:
+            - name: El agente se presenta
+              run: echo "Hola, soy Lex Luthor, y el líder de la Legión del Mal. Estoy reclutando a los mejores villanos para unirse a nuestra causa. Si estás leyendo esto, significa que has sido seleccionado para formar parte de nuestro equipo. ¡Bienvenido a la Legión del Mal!"
 
-    steps:
-      - name: El agente se presenta
-        run: echo "Soy Lex Luthor, y el líder de la Legión del Mal"
+            - name: Reporte de identidad
+              run: |
+                echo "Nombre del agente: ${{ github.actor }}"
+                echo ""
+                echo "Repositorio del agente: ${{ github.repository }}"
+                echo ""
+                echo "Evento de activación: ${{ github.event_name }}"
+                echo ""
+                echo "SHA del commit: ${{ github.sha }}"
+                echo ""
+                echo "URL del commit: ${{ github.event.head_commit.url }}"
+                echo "Mensaje del commit: ${{ github.event.head_commit.message }}" 
 
-      - name: Reporte de identidad
-        run: |
-          echo "Reporte de identidad"
-          echo "===================="
-          echo ""
-          echo "Nombre clave: ${{ github.actor }}"
-          echo ""
-          echo "Contexto de Github"
-          echo "Repo: ${{ github.repository }}"
-          echo "Operación: ${{ github.sha }}"
-          echo "Metadata: ${{ toJson(github) }}"
+            - name: Capacidades del agente
+              run: |
+                echo "Capacidades del agente: "
+                echo ""
+                echo "Sistema Operativo: $(uname -a)"
+                echo "Habilidades técnicas"
+                node --version
+                git --version
+                python3 --version
 
-      - name: Capacidades del agente
-        run: |
-          echo "Capacidades detectadas:"
-          echo "Sistema operativo"
-          uname -a
-          echo "Habilidades técnicas"
-          node --version
-          git --version
-          python3 --version
-
-      - name: Reconocimiento del terreno
-        run: |
-          echo "Reconocimiento del terreno"
-          ls /
+            - name: Reconocimiento del terreno
+              run: |
+                echo "Reconocimiento del terreno: "
+                echo ""
+                echo "Directorio de trabajo: ${{ github.workspace }}"
+                echo "Archivos en el directorio: "
+                ls -la

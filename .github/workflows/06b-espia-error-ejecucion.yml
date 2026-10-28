@@ -19,6 +19,9 @@ jobs:
   escaneo:
     runs-on: ubuntu-latest
     steps:
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v7.1.0
       - name: Brainiac accede a la base
         uses: actions/checkout@v4
 
@@ -35,7 +38,7 @@ jobs:
       - name: Escanear inteligencia sobre héroes
         run: |
           echo "🔍 Escaneando expedientes de héroes..."
-          ls inteligencia/perdedores/
+          ls inteligencia/perdedores
           echo "✅ Expedientes verificados."
       - name: Reporte final
         run: |

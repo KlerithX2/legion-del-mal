@@ -6,7 +6,7 @@
 # ╚══════════════════════════════════════════════════════╝
 
 name: 📡 Transmisión de emergencia
-on:
+on: 
   workflow_dispatch: # También se puede ejecutar manualmente para la demo en clase
 jobs:
   transmision:

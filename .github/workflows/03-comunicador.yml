@@ -1,62 +1,64 @@
-name: Comunicador de la Legión
+name: Comunicador de la Legion
 
 on:
   workflow_dispatch:
     inputs:
-      villano:
-        description: '¿Qué villano envía el mensaje?'
-        required: true
-        type: choice
-        options:
-          - Lex Luthor
-          - Magneto
-          - Joker
-          - Mystique
-          - Brainiac
-      mensaje:
-        description: 'Mensaje para el consejo'
-        required: true
-        default: 'La misión fue un éxito'
+        villano:
+            description: '¿Qué villano envía el mensaje?'
+            required: true
+            type: choice
+            options:
+                - Deathstroke
+                - Joker
+                - Brainiac
+                - Lex Luthor
 
-      cow_character:
-        description: 'Personaje'
-        required: true
-        type: choice
-        options:
-          - eyes
-          - ghostbusters
-          - dragon
-          - fox
-          - king
+        mensaje: 
+          description: "Mensaje a transmitir"
+          required: true
+          type: string
+          default: "La misión fue un éxito"
 
-      prioridad:
-        description: 'Nivel de prioridad'
-        required: true
-        type: choice
-        options:
-          - 🟢 Normal
-          - 🟡 Alta
-          - 🔴 Crítica
+        cow_character:
+          description: "Personaje"
+          required: true
+          type: choice
+          options:
+              - eyes
+              - tux
+              - dragon
+              - ghostbusters
+              - king
 
-jobs:
-  transmitir-mensaje:
-    runs-on: ubuntu-latest
+        prioridad:
+          description: "Nivel de prioridad"
+          required: true
+          type: choice
+          options:
+              - Alta
+              - Media
+              - Baja
 
-    steps:
-      - name: Instalar el tranmisor de la Legión
-        run: sudo apt-get install -y cowsay
+jobs: 
+    transmitir_mensaje:
+        runs-on: ubuntu-latest
 
-      - name: Imprimir inputs
-        run: |
-          echo "================================"
-          echo "    Transmisión interceptada"
-          echo "================================"
-          echo ""
-          echo "De: ${{ inputs.villano}}"
-          echo ""
-          echo "Fecha: $(date -u +"%d/%m/%Y - %H:%M UTC")"
-          echo "----- Mensaje ----"
-          cowsay -f "${{ inputs.cow_character }}" "${{ inputs.mensaje }}"
-          echo ""
-          echo "--- ${{ inputs.villano}}"
-          echo "..."
+        steps:
+
+          - name: Instalar el transmisor de la Legión
+            run: sudo apt-get install -y cowsay
+
+
+          - name: Imprimir inputs
+            run: |
+              echo "================================"
+              echo "Transmisión de mensaje de la Legión del Mal"
+              echo "================================"
+              echo "De: ${{ github.event.inputs.villano }}"
+              echo "Mensaje: ${{ github.event.inputs.mensaje }}"
+              echo "Prioridad: ${{ github.event.inputs.prioridad }}"
+              echo "Fecha: $(date -u + "%d/%m/%Y %H:%M:%S UTC")"
+              echo "------- Mensaje --------------------------"
+              cowsay cow_character="${{ github.event.inputs.cow_character }}" "${{ github.event.inputs.mensaje }}"
+              echo " "
+              echo "..."

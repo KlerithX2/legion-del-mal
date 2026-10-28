@@ -15,6 +15,7 @@
 - Visión de calor, rayos X, microscópica y telescópica
 - Súper oído (puede escuchar una conversación en otro continente)
 - Aliento congelante
+- Superfuerza
 
 ## Debilidades conocidas
 
